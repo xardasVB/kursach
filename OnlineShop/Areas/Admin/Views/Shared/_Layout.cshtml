@@ -1,0 +1,79 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Admin @ViewBag.Title</title>
+
+    <link href="~/Areas/Admin/Content/bootstrap.css" rel="stylesheet" />
+    <link href="~/Areas/Admin/Content/custom.css" rel="stylesheet" />
+    <link href="~/Areas/Admin/Content/font-awesome.css" rel="stylesheet" />
+    <link href="~/Areas/Admin/Content/styles.css" rel="stylesheet" />
+    @RenderSection("styles", required: false)
+</head>
+<body>
+    <div>
+        <div id="wrapper">
+            <!-- /. NAV TOP  -->
+            <nav class="navbar-default navbar-side" role="navigation">
+                <div class="sidebar-collapse">
+                    <ul class="nav" id="main-menu">
+                        <li>
+                            <a class="menulinks @((ViewBag.Dashboard == true) ? "active-menu" : "")" href="@Url.Action("Index", "Home")"><i class="fa fa-dashboard fa-3x"></i>Dashboard</a>
+                        </li>
+                        <li class="active">
+                            <a class="@((ViewBag.Dashboard != true) ? "active-menu" : "")" href="#"><i class="fa fa-sitemap fa-3x"></i> Tables<span class="fa arrow fa-2x"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a class="menulinks @((ViewBag.MenuCountry != null) ? "active-menu-inner" : "")" href="@Url.Action("Index", "Country")">Countries</a>
+                                </li>
+                                <li>
+                                    <a class="menulinks @((ViewBag.MenuManufacturer != null) ? "active-menu-inner" : "")" href="@Url.Action("Index", "Manufacturer")">Manufacturers</a>
+                                </li>
+                                <li>
+                                    <a class="menulinks @((ViewBag.MenuCategory != null) ? "active-menu-inner" : "")" href="@Url.Action("Index", "Category")">Categories</a>
+                                </li>
+                                <li>
+                                    <a class="menulinks @((ViewBag.MenuSubcategory != null) ? "active-menu-inner" : "")" href="@Url.Action("Index", "Subcategory")">Subcategories</a>
+                                </li>
+                                <li>
+                                    <a class="menulinks @((ViewBag.MenuProduct != null) ? "active-menu-inner" : "")" href="@Url.Action("Index", "Product")">Products</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+
+                </div>
+
+            </nav>
+            <!-- /. NAV SIDE  -->
+            <div id="page-wrapper">
+                <div class="row" id="page-inner">
+                    <div class="menulinks @((ViewBag.Dashboard != true) ? "col-md-6" : "")">
+                        @RenderBody()
+                    </div>
+                </div>
+                <!-- /. PAGE INNER  -->
+            </div>
+            <!-- /. PAGE WRAPPER  -->
+        </div>
+
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+
+    <script src="~/Areas/Admin/Scripts/jquery-1.10.2.js"></script>
+    <script src="~/Areas/Admin/Scripts/bootstrap.min.js"></script>
+    <script src="~/Areas/Admin/Scripts/jquery.metisMenu.js"></script>
+    <script src="~/Areas/Admin/Scripts/morris/raphael-2.1.0.min.js"></script>
+    <script src="~/Areas/Admin/Scripts/morris/morris.js"></script>
+    <script src="~/Areas/Admin/Scripts/custom.js"></script>
+    <script src="~/Areas/Admin/Scripts/myScript.js"></script>
+</body>
+</html>

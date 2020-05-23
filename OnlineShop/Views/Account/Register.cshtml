@@ -1,0 +1,54 @@
+﻿@model BLL.Models.RegisterViewModel
+@{
+    ViewBag.Title = "Реєстрація";
+}
+
+<div class="row sign-form">
+    <div class="col-md-6" style="margin-top: 3%;">
+        <a href="/Home/Index"><img class="img-responsive img-logo" src="~/Images/Site/logo.jpg" style="width: 50%;" /></a>
+    </div>
+    @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+            {
+        @Html.AntiForgeryToken()
+        @Html.TextAreaFor(m => m.Image, new { @style = "display: none;", @id = "hiddenArea" })
+        @Html.ValidationSummary("", new { @class = "text-danger" })
+        <div class="col-md-3">
+            <div class="hr-horizontal"></div>
+            @Html.TextBoxFor(m => m.Email, new { @class = "site-input col-md-12", @placeholder = "Електронна пошта" })
+            @Html.PasswordFor(m => m.Password, new { @class = "site-input col-md-12", @placeholder = "Пароль" })
+            @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "site-input col-md-12", @placeholder = "Повторіть пароль" })
+            @Html.TextBoxFor(m => m.FirstName, new { @class = "site-input col-md-12", @placeholder = "Ім'я" })
+            @Html.TextBoxFor(m => m.LastName, new { @class = "site-input col-md-12", @placeholder = "Прізвище" })
+            <input type="submit" class="btn btn-default col-md-12 horizontal-margin" value="Реєстрація" />
+            <p>@Html.ActionLink("Вже зареєстрованні?", "Login")</p>
+        </div>
+        <div class="col-md-2">
+            <div class="col-md-12 preview" id="avatarPreview"><img class="img-responsive" src="~/Images/User/Default.jpg" /></div>
+            <div class="btn btn-default btn-file col-md-12" id="loadImageBtn">
+                <form action="" method="post" id="uploadForm">
+                    Завантажити фото
+                    <i class="glyphicon glyphicon-folder-open"></i>
+                    <input type="file" id="inputImage" style="width: 100%; height: 100%;" name="file" accept=".jpg,.jpeg,.png,.gif,.bmp,.tiff" />
+                </form>
+            </div>
+        </div>
+    }
+</div>
+
+@Html.Partial("_CropperSelectImage")
+
+@section styles {
+    <link href="~/Content/Site.css" rel="stylesheet" />
+    <link href="~/Content/cropper/cropper.css" rel="stylesheet" />
+    <link href="~/Content/cropper/main.css" rel="stylesheet" />
+    <link href="~/Content/cropper/filestyle/forms.css" rel="stylesheet" />
+    <link href="~/Content/cropper/filestyle/editor_custom.css" rel="stylesheet" />
+}
+
+@section scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    <script src="https://use.fontawesome.com/a4475ec063.js"></script>
+    <script src="~/Scripts/cropper/bootstrap-filestyle.js"></script>
+    <script src="~/Scripts/cropper/main.js"></script>
+    <script src="~/Scripts/cropper/cropper.js"></script>
+}

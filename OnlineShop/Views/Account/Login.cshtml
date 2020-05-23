@@ -1,0 +1,54 @@
+﻿@using BLL.Models
+@model LoginViewModel
+@{
+    ViewBag.Title = "Вхід";
+}
+
+<div class="row sign-form">
+    <div class="col-md-6" style="margin-top: 3%;">
+        <a href="/Home/Index"><img class="img-responsive img-logo" src="~/Images/Site/logo.jpg" style="width: 50%;" /></a>
+    </div>
+    <div class="col-md-3">
+        <div class="hr-horizontal"></div>
+        <section id="loginForm">
+            @Html.Partial("_ExternalLoginsListPartial", new ExternalLoginListViewModel { ReturnUrl = ViewBag.ReturnUrl })
+            @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+            {
+                @Html.AntiForgeryToken()
+                @Html.ValidationSummary(true, "", new { @class = "text-danger col-md-12" })
+                @Html.TextBoxFor(m => m.Email, new { @class = "site-input col-md-12", @placeholder = "Електронна пошта" })
+                @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger col-md-12" })
+                @Html.PasswordFor(m => m.Password, new { @class = "site-input col-md-12", @placeholder = "Пароль" })
+                @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger col-md-12" })
+                <div class="checkbox" style="padding-left: 0px;">
+                    <label>
+                        @*@Html.CheckBoxFor(m => m.RememberMe, new { @class = "" })*@
+                        <input data-val="true" data-val-required="Требуется поле Запам'ятати мене." id="RememberMe" name="RememberMe" value="true" type="checkbox">
+                        <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
+                        Запам'ятати мене
+                        @*@Html.LabelFor(m => m.RememberMe, new { @class = "" })*@
+                    </label>
+                </div>
+                <input type="submit" value="Вхід" class="btn btn-default col-md-12 horizontal-margin" />
+                <p>@Html.ActionLink("Ще не зареєстровані?", "Register")</p>
+                @* Enable this once you have account confirmation enabled for password reset functionality
+                    <p>
+                        @Html.ActionLink("Forgot your password?", "ForgotPassword")
+                    </p>*@
+            }
+        </section>
+    </div>
+</div>
+
+@section styles {
+    <link href="~/Content/bootstrap-social.css" rel="stylesheet" />
+    <link href="~/Content/checkbox-theme.css" rel="stylesheet" />
+    <link href="~/Content/font-awesome.css" rel="stylesheet" />
+    <link href="~/Content/docs.css" rel="stylesheet" />
+}
+
+@section scripts {
+    <script src="~/Scripts/docs.js"></script>
+    <script src="~/Scripts/jquery.js"></script>
+    @Scripts.Render("~/bundles/jqueryval")
+}

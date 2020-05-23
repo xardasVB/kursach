@@ -1,0 +1,9 @@
+﻿@model BLL.Models.PageViewModel
+
+<div class="form-group row">
+    @Html.LabelFor(Model => Model.Items, htmlAttributes: new { @class = "control-label" })
+    @Html.EditorFor(Model => Model.Items, new { htmlAttributes = new { @class = "input-sm" } })
+    @Html.ValidationMessageFor(model => model.Items, "", new { @class = "text-danger" })
+    <input type="submit" value="Save" class="btn btn-default" />
+</div>
+

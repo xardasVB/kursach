@@ -1,0 +1,46 @@
+﻿@{
+    ViewBag.Title = "Кошик";
+}
+
+<div style="height: 150px">
+    <a href="/Home/Index"><img class="img-responsive img-logo" src="~/Images/Site/logo.jpg" /></a>
+</div>
+<div id="nav" class="navbar navbar-inverse">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            @*@Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })*@
+        </div>
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li>@Html.ActionLink("Домашня сторінка", "Index", "Home")</li>
+                <li>@Html.ActionLink("Магазин", "Shop", "Home")</li>
+            </ul>
+            @Html.Partial("_LoginPartial")
+        </div>
+    </div>
+</div>
+<div id="pseudo-nav" class="navbar hidden"></div>
+<div class="col-md-8">
+    <h2>Кошик пустий</h2>
+</div>
+
+@section styles {
+    <link href="~/Content/Site.css" rel="stylesheet" />
+    <link href="~/Content/cropper/cropper.css" rel="stylesheet" />
+    <link href="~/Content/cropper/main.css" rel="stylesheet" />
+    <link href="~/Content/cropper/filestyle/forms.css" rel="stylesheet" />
+    <link href="~/Content/cropper/filestyle/editor_custom.css" rel="stylesheet" />
+}
+
+@section scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    <script src="https://use.fontawesome.com/a4475ec063.js"></script>
+    <script src="~/Scripts/cropper/bootstrap-filestyle.js"></script>
+    <script src="~/Scripts/cropper/main.js"></script>
+    <script src="~/Scripts/cropper/cropper.js"></script>
+}

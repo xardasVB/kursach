@@ -1,0 +1,11 @@
+﻿.input-validation-error {
+    border-color: #cc0000;
+}
+
+.active-menu-inner {
+    background-color:#720000!important;
+}
+
+.inline {
+    display: inline-block;
+}

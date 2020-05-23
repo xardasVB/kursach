@@ -1,0 +1,19 @@
+﻿@model Dictionary<BLL.Models.CategoryItemViewModel, IEnumerable<BLL.Models.SubcategoryItemViewModel>>
+
+<div class="hide-sm">
+    <div style="height:15px;"></div>
+    <ul class="category-menu">
+        @foreach (var category in Model)
+        {
+            <li>
+                <div><a class="col-md-12 btn" href="?Category=@Html.DisplayFor(i => category.Key.Name)">@Html.DisplayFor(i => category.Key.Name) <span class="count">@Html.DisplayFor(i => category.Key.ProductCount)</span></a></div>
+                <ul class="subcategory-menu">
+                    @foreach (var subcategory in category.Value)
+                    {
+                        <li><a class="col-md-12 btn" href="?Subcategory=@Html.DisplayFor(s => subcategory.Name)">@Html.DisplayFor(s => subcategory.Name) <span style="background-color: greenyellow" class="count">@Html.DisplayFor(s => subcategory.ProductCount)</span></a></li>
+                    }
+                </ul>
+            </li>
+        }
+    </ul>
+</div>

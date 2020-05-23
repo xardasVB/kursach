@@ -1,0 +1,10 @@
+﻿@model BLL.Models.ImageViewModel
+
+@if (Model.ImageName != null)
+{
+    <li><img class="img-responsive" src="~/Images/Product/@Model.ImageName" /></li>
+}
+else
+{
+    <li><img class="img-responsive" src="~/Images/Product/Default.jpg" /></li>
+}

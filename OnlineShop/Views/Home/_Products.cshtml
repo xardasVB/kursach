@@ -1,0 +1,18 @@
+﻿@model IEnumerable<BLL.Models.ProductItemViewModel>
+
+<ul id="products" class="list-inline">
+
+    @foreach (var item in Model)
+    {
+        <li class="col-lg-3 col-md-4 col-sm-4 col-xs-6 product-element" style="text-align: center;">
+            <div style="margin: 10px;">
+                @*@Html.Action("GetProductImage", "Home", new { @id = item.Id })*@
+                <img class="img-responsive" src="/Images/Product/@(item.Image == null ? "Default.jpg" : item.Image)" style="height: 220px; display: block; margin-left: auto; margin-right: auto;">
+            </div>
+            @Html.DisplayFor(modelItem => item.Name)<br />
+            @Html.DisplayFor(modelItem => item.Manufacturer)<br />
+            @Html.DisplayFor(modelItem => item.Price) грн
+            @Html.ActionLink(" ", "Product", new { @id = item.Id }, new { @class = "product-link" })
+        </li>
+    }
+</ul>

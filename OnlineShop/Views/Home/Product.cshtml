@@ -1,0 +1,50 @@
+﻿@model BLL.Models.ProductItemViewModel
+
+@{
+    ViewBag.Title = Model.Name;
+}
+
+
+<div style="height: 150px">
+    <a href="/Home/Index"><img class="img-responsive img-logo" src="~/Images/Site/logo.jpg" /></a>
+</div>
+<div id="nav" class="navbar navbar-inverse">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            @*@Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })*@
+        </div>
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li>@Html.ActionLink("Домашня сторінка", "Index", "Home")</li>
+                <li>@Html.ActionLink("Магазин", "Shop", "Home")</li>
+            </ul>
+            @Html.Partial("_LoginPartial")
+        </div>
+    </div>
+</div>
+<div id="pseudo-nav" class="navbar hidden"></div>
+
+@using (Html.BeginForm())
+{
+    if (Model.Id > 0)
+    {
+        <div class="row" style="width: 100%;">
+            <div class="col-md-3"></div>
+            <div class="col-md-2" style="text-align: center;">
+                <div class="col-md-12">@Html.Action("GetProductImage", "Home", new { @id = Model.Id })</div>
+                @Html.DisplayFor(model => model.Code)
+            </div>
+            <div class="col-md-2">
+                <h2>@Html.DisplayFor(model => model.Name)</h2>
+                <label>@Html.DisplayFor(model => model.Price) грн.</label><br />
+                <label>@Html.DisplayFor(model => model.Description)</label>
+                <div id="addToCart" class="btn btn-black">Додати в кошик</div>
+            </div>
+        </div>
+    }
+}

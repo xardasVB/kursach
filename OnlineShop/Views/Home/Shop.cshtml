@@ -1,0 +1,108 @@
+﻿@model BLL.Models.ProductViewModel
+
+@{
+    ViewBag.Title = "Магазин";
+
+    //string links = Html.PageLinks(Model.CurrentPage, Model.TotalPages, x => Url.Action("Index", "Home", new
+    //{
+    //    page = x,
+    //    items = Model.Items,
+    //    searchModel = Model.Search
+    //}));
+}
+
+<div style="height: 150px">
+    <a href="/Home/Index"><img class="img-responsive img-logo" src="~/Images/Site/logo.jpg" /></a>
+</div>
+<div class="navbar navbar-inverse" style="position: sticky; top: 0px;">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            @*@Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })*@
+        </div>
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li>@Html.ActionLink("Домашня сторінка", "Index", "Home")</li>
+                <li>@Html.ActionLink("Магазин", "Shop", "Home")</li>
+                <li>
+                    @using (Html.BeginForm("Shop", "Home", FormMethod.Post, new { @style = "display: inline-block" }))
+                    {
+                        @Html.Partial("_Search", Model.Search)
+                    }
+                </li>
+            </ul>
+            @Html.Partial("_LoginPartial")
+        </div>
+    </div>
+</div>
+<div class="row" style="width: 100%">
+    <div class="col-md-2" style="position: sticky; top: 50px;">
+        <div id="categ-menu">
+            @Html.Action("GetCategories", "Home")
+        </div>
+    </div>
+
+    <div class="col-md-8">
+        <div>
+            @*@Html.Raw(links)*@
+            @Html.Partial("_Products", Model.Products.Take(12))
+            @*@Html.Raw(links)*@
+        </div>
+        @if (Model.Products.Count() > 12)
+        {
+            <img id="loading" style="display: block; margin-left: auto; margin-right: auto;" src="~/Images/Site/Spinner-0.5s-200px.gif" />
+        }
+        else if (Model.Products.Count() == 0)
+        {
+            <div>Nothing for "@Model.Search.Name" was found</div>
+        }
+    </div>
+</div>
+
+@section scripts {
+    <script src="~/Scripts/jQuery.tmpl.min.js"></script>
+    <script src="~/Scripts/site-scripts.js"></script>
+    <script>
+        var countProducts = 16;
+        var urlUploadProducts = '@Url.Action("AjaxGetListProducts", "Home")';
+
+        (function () {
+            $(function () {
+                $("#productTemplate").load("/Templates/products.html");
+                var bottomOfScreen = $("#loading").offset().top;
+
+                $(window).scroll(function () {
+                    if ($(window).scrollTop() + $(window).height() > (bottomOfScreen)) {
+                        bottomOfScreen *= 2;
+                        var search = {
+                            begin: countProducts
+                        };
+                        $.ajax({
+                            url: urlUploadProducts,
+                            type: 'GET',
+                            data: search,
+                            success: function (data) {
+                                var result = {
+                                    items: data.products
+                                };
+                                if (data.count > 0) {
+                                    $("#productTemplate").tmpl(result).appendTo("#products");
+                                    countProducts += data.count;
+                                    bottomOfScreen = $("#loading").offset().top;
+                                }
+                                else {
+                                    $("#loading").hide();
+                                }
+                            }
+                        });
+                    }
+                });
+            });
+        })();
+    </script>
+    <script id="productTemplate" type="text/x-jquery-tmpl"></script>
+}

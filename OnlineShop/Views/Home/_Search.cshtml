@@ -1,0 +1,11 @@
+﻿@model BLL.Models.ProductSearchViewModel
+
+<div class="form-group row" style="margin: 5px">
+    @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "site-input width-lg", @placeholder = "Пошук", @style = "background-color: white;" } })
+
+    <div class="btn btn-default" style="display: none; margin: 0px; padding: 2px;">
+        <input type="submit" value="" @*style="display: none"*@ />
+        <span class="glyphicon glyphicon-search"></span>
+    </div>
+</div>
+

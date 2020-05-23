@@ -1,0 +1,84 @@
+﻿@model BLL.Models.UserInterfereViewModel
+
+@{
+    ViewBag.Title = "Кабінет";
+}
+
+<div style="height: 150px">
+    <a href="/Home/Index"><img class="img-responsive img-logo" src="~/Images/Site/logo.jpg" /></a>
+</div>
+<div id="nav" class="navbar navbar-inverse">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            @*@Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })*@
+        </div>
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li>@Html.ActionLink("Домашня сторінка", "Index", "Home")</li>
+                <li>@Html.ActionLink("Магазин", "Shop", "Home")</li>
+            </ul>
+            @Html.Partial("_LoginPartial")
+        </div>
+    </div>
+</div>
+<div id="pseudo-nav" class="navbar hidden"></div>
+
+@using (Html.BeginForm())
+{
+    <div class="row" style="width: 100%;">
+        <div class="col-md-3"></div>
+        <div class="col-md-2">
+            <div class="col-md-12 preview" id="avatarPreview">@Html.Action("GetUserImage", "Account")</div>
+            <div class="btn btn-default btn-file col-md-12" id="loadImageBtn">
+                <form action="" method="post" id="uploadForm">
+                    Change image
+                    <i class="glyphicon glyphicon-folder-open"></i>
+                    <input type="file" id="inputImage" style="width: 100%; height: 100%;" name="file" accept=".jpg,.jpeg,.png,.gif,.bmp,.tiff" />
+                </form>
+            </div>
+        </div>
+        <div class="col-md-2">
+            @Html.AntiForgeryToken()
+
+            @Html.ValidationSummary(true, "col-md-12", new { @class = "text-danger col-md-12" })
+            @Html.TextAreaFor(model => model.Image, new { @style = "display: none;", @id = "hiddenArea" })
+
+            @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "col-md-12", @style = "margin: 0px; padding-left: 0px;" })
+            @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "site-input col-md-6", @style = "margin-top: 0px" } })
+            @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger col-md-12" })
+
+            @Html.LabelFor(model => model.FirstName, htmlAttributes: new { @class = "col-md-12", @style = "margin: 0px; padding-left: 0px;" })
+            @Html.EditorFor(model => model.FirstName, new { htmlAttributes = new { @class = "site-input col-md-6", @style = "margin-top: 0px" } } )
+            @Html.ValidationMessageFor(model => model.FirstName, "", new { @class = "text-danger col-md-12"})
+
+            @Html.LabelFor(model => model.LastName, htmlAttributes: new { @class = "col-md-12", @style = "margin: 0px; padding-left: 0px;" })
+            @Html.EditorFor(model => model.LastName, new { htmlAttributes = new { @class = "site-input col-md-6", @style = "margin-top: 0px" } } )
+            @Html.ValidationMessageFor(model => model.LastName, "", new { @class = "text-danger col-md-12"})
+
+            <input type="submit" value="Save" class="btn btn-default col-md-4" />
+        </div>
+    </div>
+}
+
+@Html.Partial("_CropperSelectImage")
+
+@section styles {
+    <link href="~/Content/Site.css" rel="stylesheet" />
+    <link href="~/Content/cropper/cropper.css" rel="stylesheet" />
+    <link href="~/Content/cropper/main.css" rel="stylesheet" />
+    <link href="~/Content/cropper/filestyle/forms.css" rel="stylesheet" />
+    <link href="~/Content/cropper/filestyle/editor_custom.css" rel="stylesheet" />
+}
+
+@section scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    <script src="https://use.fontawesome.com/a4475ec063.js"></script>
+    <script src="~/Scripts/cropper/bootstrap-filestyle.js"></script>
+    <script src="~/Scripts/cropper/main.js"></script>
+    <script src="~/Scripts/cropper/cropper.js"></script>
+}

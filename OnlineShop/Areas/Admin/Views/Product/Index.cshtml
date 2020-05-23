@@ -1,0 +1,31 @@
+﻿@model BLL.Models.ProductViewModel
+
+@{
+    ViewBag.Title = "Products";
+
+    string links = Html.PageLinks(Model.CurrentPage, Model.TotalPages, x => Url.Action("Index", "Product", new
+    {
+        page = x,
+        items = Model.Items,
+        Category = Model.Search.Category,
+        Name = Model.Search.Name,
+        Subcategory = Model.Search.Subcategory,
+        Order = Model.Search.Order
+    }));
+}
+
+<h2>Products</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.Partial("_ItemsPerPage", Model)
+    @Html.Partial("_Search", Model.Search)
+}
+
+<p>
+    @Html.ActionLink("Create New", "Create", null, new { @class = "btn btn-info" })
+</p>
+
+@Html.Raw(links)
+@Html.Partial("_Products", Model.Products)
+@Html.Raw(links)

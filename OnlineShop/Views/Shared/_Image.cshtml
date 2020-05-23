@@ -1,0 +1,10 @@
+﻿@model BLL.Models.ImageViewModel
+
+@if (Model.ImageName != null)
+{
+    <img class="img-responsive" src="~/Images/@Model.Folder/@Model.ImageName" style = "width: 100%; height: 100%;" />
+}
+else
+{
+    <img class="img-responsive" src="~/Images/@Model.Folder/Default.jpg" style = "width: 100%; height: 100%;"/>
+}

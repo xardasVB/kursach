@@ -1,0 +1,1017 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.3\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.3\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="..\packages\Microsoft.Net.Compilers.1.3.2\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.1.3.2\build\Microsoft.Net.Compilers.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{7BA508F9-D5DE-4BE4-A4E1-537C04D580FA}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>OnlineShop</RootNamespace>
+    <AssemblyName>OnlineShop</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort>44397</IISExpressSSLPort>
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Antlr3.Runtime, Version=3.5.0.2, Culture=neutral, PublicKeyToken=eb42632606e9261f, processorArchitecture=MSIL">
+      <HintPath>..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="Autofac, Version=4.6.2.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
+      <HintPath>..\packages\Autofac.4.6.2\lib\net45\Autofac.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Autofac.Engine, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Autofac.Engine.3.0.2\lib\net4.5.2\Autofac.Engine.dll</HintPath>
+    </Reference>
+    <Reference Include="Autofac.Integration.Mvc, Version=4.0.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
+      <HintPath>..\packages\Autofac.Mvc5.4.0.2\lib\net45\Autofac.Integration.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="Autofac.Integration.Mvc.Owin, Version=4.0.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
+      <HintPath>..\packages\Autofac.Mvc5.Owin.4.0.1\lib\net45\Autofac.Integration.Mvc.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Autofac.Integration.Owin, Version=4.1.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
+      <HintPath>..\packages\Autofac.Owin.4.1.0\lib\net45\Autofac.Integration.Owin.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.3\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Extensions.Configuration, Version=1.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Configuration.1.0.0\lib\netstandard1.1\Microsoft.Extensions.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Configuration.Abstractions, Version=1.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Configuration.Abstractions.1.0.0\lib\netstandard1.0\Microsoft.Extensions.Configuration.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Primitives, Version=1.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Primitives.1.0.0\lib\netstandard1.0\Microsoft.Extensions.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin, Version=3.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.3.1.0\lib\net45\Microsoft.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Host.SystemWeb, Version=3.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Host.SystemWeb.3.1.0\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security, Version=3.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.3.1.0\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Facebook, Version=3.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.Facebook.3.1.0\lib\net45\Microsoft.Owin.Security.Facebook.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.IO.Compression.FileSystem" />
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.1\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Owin">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Owin.2.2.1\lib\net45\Microsoft.AspNet.Identity.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.2.1\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Owin">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Cookies">
+      <HintPath>..\packages\Microsoft.Owin.Security.Cookies.3.0.1\lib\net45\Microsoft.Owin.Security.Cookies.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.OAuth">
+      <HintPath>..\packages\Microsoft.Owin.Security.OAuth.3.0.1\lib\net45\Microsoft.Owin.Security.OAuth.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Google">
+      <HintPath>..\packages\Microsoft.Owin.Security.Google.3.0.1\lib\net45\Microsoft.Owin.Security.Google.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Twitter">
+      <HintPath>..\packages\Microsoft.Owin.Security.Twitter.3.0.1\lib\net45\Microsoft.Owin.Security.Twitter.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.MicrosoftAccount">
+      <HintPath>..\packages\Microsoft.Owin.Security.MicrosoftAccount.3.0.1\lib\net45\Microsoft.Owin.Security.MicrosoftAccount.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ApplicationInsights">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.2.2.0\lib\net45\Microsoft.ApplicationInsights.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.Agent.Intercept">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Agent.Intercept.2.0.6\lib\net45\Microsoft.AI.Agent.Intercept.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.DependencyCollector">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.DependencyCollector.2.2.0\lib\net45\Microsoft.AI.DependencyCollector.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.PerfCounterCollector">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.PerfCounterCollector.2.2.0\lib\net45\Microsoft.AI.PerfCounterCollector.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.ServerTelemetryChannel">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.2.2.0\lib\net45\Microsoft.AI.ServerTelemetryChannel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.WindowsServer">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.2.2.0\lib\net45\Microsoft.AI.WindowsServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.Web">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Web.2.2.0\lib\net45\Microsoft.AI.Web.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\Controllers\CategoryController.cs" />
+    <Compile Include="Areas\Admin\Controllers\CountryController.cs" />
+    <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
+    <Compile Include="Areas\Admin\Controllers\ManufacturerController.cs" />
+    <Compile Include="Areas\Admin\Controllers\ProductController.cs" />
+    <Compile Include="Areas\Admin\Controllers\SubcategoryController.cs" />
+    <Compile Include="Areas\Admin\Controllers\UserController.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Helpers\ImageWorker.cs" />
+    <Compile Include="Helpers\PagingHelper.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Admin\Content\bootstrap.css" />
+    <Content Include="Areas\Admin\Content\custom.css" />
+    <Content Include="Areas\Admin\Content\font-awesome.css" />
+    <Content Include="Areas\Admin\Content\styles.css" />
+    <Content Include="Areas\Admin\Scripts\bootstrap.min.js" />
+    <Content Include="Areas\Admin\Scripts\custom.js" />
+    <Content Include="Areas\Admin\Scripts\dataTables\dataTables.bootstrap.css" />
+    <Content Include="Areas\Admin\Scripts\dataTables\dataTables.bootstrap.js" />
+    <Content Include="Areas\Admin\Scripts\dataTables\jquery.dataTables.js" />
+    <Content Include="Areas\Admin\Scripts\jquery-1.10.2.js" />
+    <Content Include="Areas\Admin\Scripts\jquery.metisMenu.js" />
+    <Content Include="Areas\Admin\Scripts\morris\morris-0.4.3.min.css" />
+    <Content Include="Areas\Admin\Scripts\morris\morris.js" />
+    <Content Include="Areas\Admin\Scripts\morris\raphael-2.1.0.min.js" />
+    <Content Include="Areas\Admin\Scripts\myScript.js" />
+    <Content Include="Content\bootstrap-social.css" />
+    <Content Include="Content\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap-theme.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\checkbox-theme.css" />
+    <Content Include="Content\cropper\cropper.css" />
+    <Content Include="Content\cropper\cropper111.css" />
+    <Content Include="Content\cropper\filestyle\editor_custom.css" />
+    <Content Include="Content\cropper\filestyle\forms.css" />
+    <Content Include="Content\cropper\filestyle\style.css" />
+    <Content Include="Content\cropper\font-awesome.min.css" />
+    <Content Include="Content\cropper\main.css" />
+    <Content Include="Content\docs.css" />
+    <Content Include="Content\font-awesome.css" />
+    <Content Include="favicon.ico" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Images\Main\5120x2880_pure_minimal.png" />
+    <Content Include="Images\Main\badges5.png" />
+    <Content Include="Images\Main\bigstock-Coffee-Shop-Blur-Background-Wi-74331850.jpg" />
+    <Content Include="Images\Main\Business-People-Photos-HD.jpg" />
+    <Content Include="Images\Main\business-people.jpg" />
+    <Content Include="Images\Main\coffee-tablet-headphones-work-163187.jpeg" />
+    <Content Include="Images\Main\devka2.png" />
+    <Content Include="Images\Main\face1.jpg" />
+    <Content Include="Images\Main\face2.jpg" />
+    <Content Include="Images\Main\face3.jpg" />
+    <Content Include="Images\Main\FreeGreatPicture.com-42218-business-people.jpg" />
+    <Content Include="Images\Main\index.jpg" />
+    <Content Include="Images\Main\index2.jpg" />
+    <Content Include="Images\Main\index3.jpg" />
+    <Content Include="Images\Main\laptop2.jpg" />
+    <Content Include="Images\Main\Legal-Recruiting-6.jpg" />
+    <Content Include="Images\Main\mountinsbackground.jpg" />
+    <Content Include="Images\Main\pexels-photo-103127.jpeg" />
+    <Content Include="Images\Main\pexels-photo-296886.jpeg" />
+    <Content Include="Images\Main\photo1.jpg" />
+    <Content Include="Images\Main\Снимок.JPG" />
+    <Content Include="Images\Product\052blue-b.jpg" />
+    <Content Include="Images\Product\052green-b.jpg" />
+    <Content Include="Images\Product\052red-b.jpg" />
+    <Content Include="Images\Product\100\052blue-b.jpg" />
+    <Content Include="Images\Product\100\052green-b.jpg" />
+    <Content Include="Images\Product\100\052red-b.jpg" />
+    <Content Include="Images\Product\100\16910.jpg" />
+    <Content Include="Images\Product\100\18mm-b.jpg" />
+    <Content Include="Images\Product\100\200В.jpg" />
+    <Content Include="Images\Product\100\70mmblack-b.jpg" />
+    <Content Include="Images\Product\100\70mmblue-b.jpg" />
+    <Content Include="Images\Product\100\70mmred-b.jpg" />
+    <Content Include="Images\Product\100\76x76-4col.jpg" />
+    <Content Include="Images\Product\100\927-bk.jpg" />
+    <Content Include="Images\Product\100\BD806-.JPG" />
+    <Content Include="Images\Product\100\BD809-.JPG" />
+    <Content Include="Images\Product\100\BD813-807-.JPG" />
+    <Content Include="Images\Product\100\BD815-.JPG" />
+    <Content Include="Images\Product\100\binder1-b.jpg" />
+    <Content Include="Images\Product\100\binder15.jpg" />
+    <Content Include="Images\Product\100\binder19.jpg" />
+    <Content Include="Images\Product\100\binder25.jpg" />
+    <Content Include="Images\Product\100\binder32.jpg" />
+    <Content Include="Images\Product\100\binder41.jpg" />
+    <Content Include="Images\Product\100\binder51.jpg" />
+    <Content Include="Images\Product\100\Book48arkklitofs.jpg" />
+    <Content Include="Images\Product\100\Book48arklingaz.jpg" />
+    <Content Include="Images\Product\100\Book48arklinofs.jpg" />
+    <Content Include="Images\Product\100\Book96arkpispapirlin.jpg" />
+    <Content Include="Images\Product\100\BookA496arkgazklit.jpg" />
+    <Content Include="Images\Product\100\BookA4_200lamklitofset.jpg" />
+    <Content Include="Images\Product\100\BookTP!92arkgazkl.jpg" />
+    <Content Include="Images\Product\100\BookTP100arkgazkl.jpg" />
+    <Content Include="Images\Product\100\Butterflyfiol.jpg" />
+    <Content Include="Images\Product\100\Butterflyshern.jpg" />
+    <Content Include="Images\Product\100\Corvina51shorn.jpg" />
+    <Content Include="Images\Product\100\EconomixMercury.jpg" />
+    <Content Include="Images\Product\100\EconomixNeptun.jpg" />
+    <Content Include="Images\Product\100\EconomixPluton.jpg" />
+    <Content Include="Images\Product\100\EconomixVenera.jpg" />
+    <Content Include="Images\Product\100\F007.jpg" />
+    <Content Include="Images\Product\100\F145.jpg" />
+    <Content Include="Images\Product\100\F160.jpg" />
+    <Content Include="Images\Product\100\GF100.jpg" />
+    <Content Include="Images\Product\100\ggr100.jpg" />
+    <Content Include="Images\Product\100\Hathor.jpg" />
+    <Content Include="Images\Product\100\IQ-economy.jpg" />
+    <Content Include="Images\Product\100\KC05-В.jpg" />
+    <Content Include="Images\Product\100\KC23В.jpg" />
+    <Content Include="Images\Product\100\KiN1380.jpg" />
+    <Content Include="Images\Product\100\KiN1602.jpg" />
+    <Content Include="Images\Product\100\KKF012.jpg" />
+    <Content Include="Images\Product\100\KKF052.jpg" />
+    <Content Include="Images\Product\100\KKF058.jpg" />
+    <Content Include="Images\Product\100\KKF072.jpg" />
+    <Content Include="Images\Product\100\KKF079.jpg" />
+    <Content Include="Images\Product\100\KKF088.jpg" />
+    <Content Include="Images\Product\100\KKF100.jpg" />
+    <Content Include="Images\Product\100\KKF110.jpg" />
+    <Content Include="Images\Product\100\KKF128.jpg" />
+    <Content Include="Images\Product\100\KKF132.jpg" />
+    <Content Include="Images\Product\100\KKF418.jpg" />
+    <Content Include="Images\Product\100\KKF630.jpg" />
+    <Content Include="Images\Product\100\KKF642.jpg" />
+    <Content Include="Images\Product\100\klej-ol-15gr.jpg" />
+    <Content Include="Images\Product\100\klej-ol-21gr.jpg" />
+    <Content Include="Images\Product\100\klej-ol-9gr.jpg" />
+    <Content Include="Images\Product\100\KonvertA4.jpg" />
+    <Content Include="Images\Product\100\KonvertA5.jpg" />
+    <Content Include="Images\Product\100\Korect-pen.jpg" />
+    <Content Include="Images\Product\100\KS-35.jpg" />
+    <Content Include="Images\Product\100\Marker-nabor-6-veb.jpg" />
+    <Content Include="Images\Product\100\Marker-pemanent-black.jpg" />
+    <Content Include="Images\Product\100\Marker-pemanent-blue.jpg" />
+    <Content Include="Images\Product\100\Marker-pemanent-red.jpg" />
+    <Content Include="Images\Product\100\Maxi-Spring.jpg" />
+    <Content Include="Images\Product\100\Mouse.jpg" />
+    <Content Include="Images\Product\100\Nakladna.jpg" />
+    <Content Include="Images\Product\100\NakladnaRoz.jpg" />
+    <Content Include="Images\Product\100\papka-d-paperiv.jpg" />
+    <Content Include="Images\Product\100\PB120001.jpg" />
+    <Content Include="Images\Product\100\PB120005.jpg" />
+    <Content Include="Images\Product\100\PB120006.jpg" />
+    <Content Include="Images\Product\100\PB120009a.jpg" />
+    <Content Include="Images\Product\100\PB120012.jpg" />
+    <Content Include="Images\Product\100\PB120015.jpg" />
+    <Content Include="Images\Product\100\PB120018.jpg" />
+    <Content Include="Images\Product\100\PB120020.jpg" />
+    <Content Include="Images\Product\100\PB120026.jpg" />
+    <Content Include="Images\Product\100\PB120028.jpg" />
+    <Content Include="Images\Product\100\PB120031.jpg" />
+    <Content Include="Images\Product\100\PB120035.jpg" />
+    <Content Include="Images\Product\100\PB120041.jpg" />
+    <Content Include="Images\Product\100\PB120043.jpg" />
+    <Content Include="Images\Product\100\PB120045.jpg" />
+    <Content Include="Images\Product\100\PB120046.jpg" />
+    <Content Include="Images\Product\100\PB140002.jpg" />
+    <Content Include="Images\Product\100\PB140003.jpg" />
+    <Content Include="Images\Product\100\PB140004.jpg" />
+    <Content Include="Images\Product\100\PB140005.jpg" />
+    <Content Include="Images\Product\100\PB140011.jpg" />
+    <Content Include="Images\Product\100\PB140012.jpg" />
+    <Content Include="Images\Product\100\PB140013.jpg" />
+    <Content Include="Images\Product\100\PB140014.jpg" />
+    <Content Include="Images\Product\100\PB140015.jpg" />
+    <Content Include="Images\Product\100\PB140015_.jpg" />
+    <Content Include="Images\Product\100\PB140016.jpg" />
+    <Content Include="Images\Product\100\PB140016_.jpg" />
+    <Content Include="Images\Product\100\PB140018.jpg" />
+    <Content Include="Images\Product\100\PB140018_.jpg" />
+    <Content Include="Images\Product\100\PB140019.jpg" />
+    <Content Include="Images\Product\100\PB140019_.jpg" />
+    <Content Include="Images\Product\100\PB140020.jpg" />
+    <Content Include="Images\Product\100\PB140020_.jpg" />
+    <Content Include="Images\Product\100\PB140021.jpg" />
+    <Content Include="Images\Product\100\PB140021_.jpg" />
+    <Content Include="Images\Product\100\PB140023.jpg" />
+    <Content Include="Images\Product\100\PB140023_.jpg" />
+    <Content Include="Images\Product\100\PB140025.jpg" />
+    <Content Include="Images\Product\100\PB140026.jpg" />
+    <Content Include="Images\Product\100\Pb140055.jpg" />
+    <Content Include="Images\Product\100\Pb140055_.jpg" />
+    <Content Include="Images\Product\100\PB170067.jpg" />
+    <Content Include="Images\Product\100\PB170068.jpg" />
+    <Content Include="Images\Product\100\PB170070.jpg" />
+    <Content Include="Images\Product\100\PB170072.jpg" />
+    <Content Include="Images\Product\100\PB170073.jpg" />
+    <Content Include="Images\Product\100\PB170075.jpg" />
+    <Content Include="Images\Product\100\PB170076.jpg" />
+    <Content Include="Images\Product\100\PB170077.jpg" />
+    <Content Include="Images\Product\100\PB170080.jpg" />
+    <Content Include="Images\Product\100\PB170082.jpg" />
+    <Content Include="Images\Product\100\PB190083.jpg" />
+    <Content Include="Images\Product\100\PB190087.jpg" />
+    <Content Include="Images\Product\100\PB190089.jpg" />
+    <Content Include="Images\Product\100\PB190092.jpg" />
+    <Content Include="Images\Product\100\PB190097.jpg" />
+    <Content Include="Images\Product\100\PB190098.jpg" />
+    <Content Include="Images\Product\100\PB190100.jpg" />
+    <Content Include="Images\Product\100\PB190102.jpg" />
+    <Content Include="Images\Product\100\PB190111.jpg" />
+    <Content Include="Images\Product\100\PB190112.jpg" />
+    <Content Include="Images\Product\100\PB190115.jpg" />
+    <Content Include="Images\Product\100\PB190117.jpg" />
+    <Content Include="Images\Product\100\PB190120.jpg" />
+    <Content Include="Images\Product\100\PosvProVirrid.jpg" />
+    <Content Include="Images\Product\100\PribKasOrder.jpg" />
+    <Content Include="Images\Product\100\Rahynok.jpg" />
+    <Content Include="Images\Product\100\rees-bl.jpg" />
+    <Content Include="Images\Product\100\retype.JPG" />
+    <Content Include="Images\Product\100\S-Front-004.jpg" />
+    <Content Include="Images\Product\100\S-Front-005.jpg" />
+    <Content Include="Images\Product\100\S-Front-006.jpg" />
+    <Content Include="Images\Product\100\SamoklStrishka110x220.jpg" />
+    <Content Include="Images\Product\100\SamoklStrishka162x229.jpg" />
+    <Content Include="Images\Product\100\skiper-3otd-b.jpg" />
+    <Content Include="Images\Product\100\Skrepki-color.jpg" />
+    <Content Include="Images\Product\100\SLDTEC SL-1200V.jpg" />
+    <Content Include="Images\Product\100\SLDTEC SL-309.jpg" />
+    <Content Include="Images\Product\100\SLDTEC SL-310.jpg" />
+    <Content Include="Images\Product\100\SLDTEC SL-837.jpg" />
+    <Content Include="Images\Product\100\SLDTEC SL-841.jpg" />
+    <Content Include="Images\Product\100\SLDTEC SL-886.jpg" />
+    <Content Include="Images\Product\100\SLDTEC SL-999.jpg" />
+    <Content Include="Images\Product\100\StandartFlex.jpg" />
+    <Content Include="Images\Product\100\StandartOrient.jpg" />
+    <Content Include="Images\Product\100\StandartTorino.jpg" />
+    <Content Include="Images\Product\100\trodat-black.jpg" />
+    <Content Include="Images\Product\100\trodat-blue.jpg" />
+    <Content Include="Images\Product\100\trodat-green.jpg" />
+    <Content Include="Images\Product\100\trodat-red.jpg" />
+    <Content Include="Images\Product\100\trodat-violet.jpg" />
+    <Content Include="Images\Product\100\VidatkKassOrder.jpg" />
+    <Content Include="Images\Product\100\W209B.jpg" />
+    <Content Include="Images\Product\100\WS4161kВ.jpg" />
+    <Content Include="Images\Product\16910.jpg" />
+    <Content Include="Images\Product\18mm-b.jpg" />
+    <Content Include="Images\Product\200\052blue-b.jpg" />
+    <Content Include="Images\Product\200\052green-b.jpg" />
+    <Content Include="Images\Product\200\052red-b.jpg" />
+    <Content Include="Images\Product\200\16910.jpg" />
+    <Content Include="Images\Product\200\18mm-b.jpg" />
+    <Content Include="Images\Product\200\200В.jpg" />
+    <Content Include="Images\Product\200\70mmblack-b.jpg" />
+    <Content Include="Images\Product\200\70mmblue-b.jpg" />
+    <Content Include="Images\Product\200\70mmred-b.jpg" />
+    <Content Include="Images\Product\200\76x76-4col.jpg" />
+    <Content Include="Images\Product\200\927-bk.jpg" />
+    <Content Include="Images\Product\200\BD806-.JPG" />
+    <Content Include="Images\Product\200\BD809-.JPG" />
+    <Content Include="Images\Product\200\BD813-807-.JPG" />
+    <Content Include="Images\Product\200\BD815-.JPG" />
+    <Content Include="Images\Product\200\binder15.jpg" />
+    <Content Include="Images\Product\200\binder19.jpg" />
+    <Content Include="Images\Product\200\binder25.jpg" />
+    <Content Include="Images\Product\200\binder32.jpg" />
+    <Content Include="Images\Product\200\binder41.jpg" />
+    <Content Include="Images\Product\200\binder51.jpg" />
+    <Content Include="Images\Product\200\Book48arkklitofs.jpg" />
+    <Content Include="Images\Product\200\Book48arklingaz.jpg" />
+    <Content Include="Images\Product\200\Book48arklinofs.jpg" />
+    <Content Include="Images\Product\200\Book96arkpispapirlin.jpg" />
+    <Content Include="Images\Product\200\BookA496arkgazklit.jpg" />
+    <Content Include="Images\Product\200\BookA4_200lamklitofset.jpg" />
+    <Content Include="Images\Product\200\BookTP!92arkgazkl.jpg" />
+    <Content Include="Images\Product\200\BookTP100arkgazkl.jpg" />
+    <Content Include="Images\Product\200\Butterflyfiol.jpg" />
+    <Content Include="Images\Product\200\Butterflyshern.jpg" />
+    <Content Include="Images\Product\200\Corvina51shorn.jpg" />
+    <Content Include="Images\Product\200\EconomixMercury.jpg" />
+    <Content Include="Images\Product\200\EconomixNeptun.jpg" />
+    <Content Include="Images\Product\200\EconomixPluton.jpg" />
+    <Content Include="Images\Product\200\EconomixVenera.jpg" />
+    <Content Include="Images\Product\200\F007.jpg" />
+    <Content Include="Images\Product\200\F145.jpg" />
+    <Content Include="Images\Product\200\F160.jpg" />
+    <Content Include="Images\Product\200\GF100.jpg" />
+    <Content Include="Images\Product\200\ggr100.jpg" />
+    <Content Include="Images\Product\200\Hathor.jpg" />
+    <Content Include="Images\Product\200\IQ-economy.jpg" />
+    <Content Include="Images\Product\200\KC05-В.jpg" />
+    <Content Include="Images\Product\200\KC23В.jpg" />
+    <Content Include="Images\Product\200\KiN1380.jpg" />
+    <Content Include="Images\Product\200\KiN1602.jpg" />
+    <Content Include="Images\Product\200\KKF012.jpg" />
+    <Content Include="Images\Product\200\KKF052.jpg" />
+    <Content Include="Images\Product\200\KKF058.jpg" />
+    <Content Include="Images\Product\200\KKF072.jpg" />
+    <Content Include="Images\Product\200\KKF079.jpg" />
+    <Content Include="Images\Product\200\KKF088.jpg" />
+    <Content Include="Images\Product\200\KKF100.jpg" />
+    <Content Include="Images\Product\200\KKF110.jpg" />
+    <Content Include="Images\Product\200\KKF128.jpg" />
+    <Content Include="Images\Product\200\KKF132.jpg" />
+    <Content Include="Images\Product\200\KKF418.jpg" />
+    <Content Include="Images\Product\200\KKF630.jpg" />
+    <Content Include="Images\Product\200\KKF642.jpg" />
+    <Content Include="Images\Product\200\klej-ol-15gr.jpg" />
+    <Content Include="Images\Product\200\klej-ol-21gr.jpg" />
+    <Content Include="Images\Product\200\klej-ol-9gr.jpg" />
+    <Content Include="Images\Product\200\KonvertA4.jpg" />
+    <Content Include="Images\Product\200\KonvertA5.jpg" />
+    <Content Include="Images\Product\200\Korect-pen.jpg" />
+    <Content Include="Images\Product\200\KS-35.jpg" />
+    <Content Include="Images\Product\200\Marker-nabor-6-veb.jpg" />
+    <Content Include="Images\Product\200\Marker-pemanent-black.jpg" />
+    <Content Include="Images\Product\200\Marker-pemanent-blue.jpg" />
+    <Content Include="Images\Product\200\Marker-pemanent-red.jpg" />
+    <Content Include="Images\Product\200\Maxi-Spring.jpg" />
+    <Content Include="Images\Product\200\Mouse.jpg" />
+    <Content Include="Images\Product\200\Nakladna.jpg" />
+    <Content Include="Images\Product\200\NakladnaRoz.jpg" />
+    <Content Include="Images\Product\200\papka-d-paperiv.jpg" />
+    <Content Include="Images\Product\200\PB120001.jpg" />
+    <Content Include="Images\Product\200\PB120005.jpg" />
+    <Content Include="Images\Product\200\PB120006.jpg" />
+    <Content Include="Images\Product\200\PB120009a.jpg" />
+    <Content Include="Images\Product\200\PB120012.jpg" />
+    <Content Include="Images\Product\200\PB120015.jpg" />
+    <Content Include="Images\Product\200\PB120018.jpg" />
+    <Content Include="Images\Product\200\PB120020.jpg" />
+    <Content Include="Images\Product\200\PB120026.jpg" />
+    <Content Include="Images\Product\200\PB120028.jpg" />
+    <Content Include="Images\Product\200\PB120031.jpg" />
+    <Content Include="Images\Product\200\PB120035.jpg" />
+    <Content Include="Images\Product\200\PB120041.jpg" />
+    <Content Include="Images\Product\200\PB120043.jpg" />
+    <Content Include="Images\Product\200\PB120045.jpg" />
+    <Content Include="Images\Product\200\PB120046.jpg" />
+    <Content Include="Images\Product\200\PB140002.jpg" />
+    <Content Include="Images\Product\200\PB140003.jpg" />
+    <Content Include="Images\Product\200\PB140004.jpg" />
+    <Content Include="Images\Product\200\PB140005.jpg" />
+    <Content Include="Images\Product\200\PB140011.jpg" />
+    <Content Include="Images\Product\200\PB140012.jpg" />
+    <Content Include="Images\Product\200\PB140013.jpg" />
+    <Content Include="Images\Product\200\PB140014.jpg" />
+    <Content Include="Images\Product\200\PB140015.jpg" />
+    <Content Include="Images\Product\200\PB140015_.jpg" />
+    <Content Include="Images\Product\200\PB140016.jpg" />
+    <Content Include="Images\Product\200\PB140016_.jpg" />
+    <Content Include="Images\Product\200\PB140018.jpg" />
+    <Content Include="Images\Product\200\PB140018_.jpg" />
+    <Content Include="Images\Product\200\PB140019.jpg" />
+    <Content Include="Images\Product\200\PB140019_.jpg" />
+    <Content Include="Images\Product\200\PB140020.jpg" />
+    <Content Include="Images\Product\200\PB140020_.jpg" />
+    <Content Include="Images\Product\200\PB140021.jpg" />
+    <Content Include="Images\Product\200\PB140021_.jpg" />
+    <Content Include="Images\Product\200\PB140023.jpg" />
+    <Content Include="Images\Product\200\PB140023_.jpg" />
+    <Content Include="Images\Product\200\PB140025.jpg" />
+    <Content Include="Images\Product\200\PB140026.jpg" />
+    <Content Include="Images\Product\200\Pb140055.jpg" />
+    <Content Include="Images\Product\200\Pb140055_.jpg" />
+    <Content Include="Images\Product\200\PB170067.jpg" />
+    <Content Include="Images\Product\200\PB170068.jpg" />
+    <Content Include="Images\Product\200\PB170070.jpg" />
+    <Content Include="Images\Product\200\PB170072.jpg" />
+    <Content Include="Images\Product\200\PB170073.jpg" />
+    <Content Include="Images\Product\200\PB170075.jpg" />
+    <Content Include="Images\Product\200\PB170076.jpg" />
+    <Content Include="Images\Product\200\PB170077.jpg" />
+    <Content Include="Images\Product\200\PB170080.jpg" />
+    <Content Include="Images\Product\200\PB170082.jpg" />
+    <Content Include="Images\Product\200\PB190083.jpg" />
+    <Content Include="Images\Product\200\PB190087.jpg" />
+    <Content Include="Images\Product\200\PB190089.jpg" />
+    <Content Include="Images\Product\200\PB190092.jpg" />
+    <Content Include="Images\Product\200\PB190097.jpg" />
+    <Content Include="Images\Product\200\PB190098.jpg" />
+    <Content Include="Images\Product\200\PB190100.jpg" />
+    <Content Include="Images\Product\200\PB190102.jpg" />
+    <Content Include="Images\Product\200\PB190111.jpg" />
+    <Content Include="Images\Product\200\PB190112.jpg" />
+    <Content Include="Images\Product\200\PB190115.jpg" />
+    <Content Include="Images\Product\200\PB190117.jpg" />
+    <Content Include="Images\Product\200\PB190120.jpg" />
+    <Content Include="Images\Product\200\plan_shema.jpg" />
+    <Content Include="Images\Product\200\PosvProVirrid.jpg" />
+    <Content Include="Images\Product\200\PribKasOrder.jpg" />
+    <Content Include="Images\Product\200\Rahynok.jpg" />
+    <Content Include="Images\Product\200\rees-bl.jpg" />
+    <Content Include="Images\Product\200\retype.JPG" />
+    <Content Include="Images\Product\200\S-Front-004.jpg" />
+    <Content Include="Images\Product\200\S-Front-005.jpg" />
+    <Content Include="Images\Product\200\S-Front-006.jpg" />
+    <Content Include="Images\Product\200\SamoklStrishka110x220.jpg" />
+    <Content Include="Images\Product\200\SamoklStrishka162x229.jpg" />
+    <Content Include="Images\Product\200\skiper-3otd-b.jpg" />
+    <Content Include="Images\Product\200\Skrepki-color.jpg" />
+    <Content Include="Images\Product\200\SLDTEC SL-1200V.jpg" />
+    <Content Include="Images\Product\200\SLDTEC SL-309.jpg" />
+    <Content Include="Images\Product\200\SLDTEC SL-310.jpg" />
+    <Content Include="Images\Product\200\SLDTEC SL-837.jpg" />
+    <Content Include="Images\Product\200\SLDTEC SL-841.jpg" />
+    <Content Include="Images\Product\200\SLDTEC SL-886.jpg" />
+    <Content Include="Images\Product\200\SLDTEC SL-999.jpg" />
+    <Content Include="Images\Product\200\StandartFlex.jpg" />
+    <Content Include="Images\Product\200\StandartOrient.jpg" />
+    <Content Include="Images\Product\200\StandartTorino.jpg" />
+    <Content Include="Images\Product\200\trodat-black.jpg" />
+    <Content Include="Images\Product\200\trodat-blue.jpg" />
+    <Content Include="Images\Product\200\trodat-green.jpg" />
+    <Content Include="Images\Product\200\trodat-red.jpg" />
+    <Content Include="Images\Product\200\trodat-violet.jpg" />
+    <Content Include="Images\Product\200\VidatkKassOrder.jpg" />
+    <Content Include="Images\Product\200\W209B.jpg" />
+    <Content Include="Images\Product\200\WS4161kВ.jpg" />
+    <Content Include="Images\Product\200В.jpg" />
+    <Content Include="Images\Product\70mmblack-b.jpg" />
+    <Content Include="Images\Product\70mmblue-b.jpg" />
+    <Content Include="Images\Product\70mmred-b.jpg" />
+    <Content Include="Images\Product\76x76-4col.jpg" />
+    <Content Include="Images\Product\927-bk.jpg" />
+    <Content Include="Images\Product\BD806-.JPG" />
+    <Content Include="Images\Product\BD809-.JPG" />
+    <Content Include="Images\Product\BD813-807-.JPG" />
+    <Content Include="Images\Product\BD815-.JPG" />
+    <Content Include="Images\Product\binder15.jpg" />
+    <Content Include="Images\Product\binder19.jpg" />
+    <Content Include="Images\Product\binder25.jpg" />
+    <Content Include="Images\Product\binder32.jpg" />
+    <Content Include="Images\Product\binder41.jpg" />
+    <Content Include="Images\Product\binder51.jpg" />
+    <Content Include="Images\Product\Book48arkklitofs.jpg" />
+    <Content Include="Images\Product\Book48arklingaz.jpg" />
+    <Content Include="Images\Product\Book48arklinofs.jpg" />
+    <Content Include="Images\Product\Book96arkpispapirlin.jpg" />
+    <Content Include="Images\Product\BookA496arkgazklit.jpg" />
+    <Content Include="Images\Product\BookA4_200lamklitofset.jpg" />
+    <Content Include="Images\Product\BookTP!92arkgazkl.jpg" />
+    <Content Include="Images\Product\BookTP100arkgazkl.jpg" />
+    <Content Include="Images\Product\Butterflyfiol.jpg" />
+    <Content Include="Images\Product\Butterflyshern.jpg" />
+    <Content Include="Images\Product\Corvina51shorn.jpg" />
+    <Content Include="Images\Product\Default.jpg" />
+    <Content Include="Images\Product\EconomixMercury.jpg" />
+    <Content Include="Images\Product\EconomixNeptun.jpg" />
+    <Content Include="Images\Product\EconomixPluton.jpg" />
+    <Content Include="Images\Product\EconomixVenera.jpg" />
+    <Content Include="Images\Product\ext\ico_cdr.gif" />
+    <Content Include="Images\Product\ext\ico_chm.gif" />
+    <Content Include="Images\Product\ext\ico_exe.gif" />
+    <Content Include="Images\Product\ext\ico_fla.gif" />
+    <Content Include="Images\Product\ext\ico_media.gif" />
+    <Content Include="Images\Product\ext\ico_msg.gif" />
+    <Content Include="Images\Product\ext\ico_nn.gif" />
+    <Content Include="Images\Product\ext\ico_pdf.gif" />
+    <Content Include="Images\Product\ext\ico_pic.gif" />
+    <Content Include="Images\Product\ext\ico_png.gif" />
+    <Content Include="Images\Product\ext\ico_pps.gif" />
+    <Content Include="Images\Product\ext\ico_psd.gif" />
+    <Content Include="Images\Product\ext\ico_spinacz.gif" />
+    <Content Include="Images\Product\ext\ico_swf.gif" />
+    <Content Include="Images\Product\ext\ico_sys.gif" />
+    <Content Include="Images\Product\ext\ico_txt.gif" />
+    <Content Include="Images\Product\ext\ico_vcf.gif" />
+    <Content Include="Images\Product\ext\ico_web.gif" />
+    <Content Include="Images\Product\ext\ico_xls.gif" />
+    <Content Include="Images\Product\ext\ico_xml.gif" />
+    <Content Include="Images\Product\ext\ico_zip.gif" />
+    <Content Include="Images\Product\F007.jpg" />
+    <Content Include="Images\Product\F145.jpg" />
+    <Content Include="Images\Product\F160.jpg" />
+    <Content Include="Images\Product\GF100.jpg" />
+    <Content Include="Images\Product\ggr100.jpg" />
+    <Content Include="Images\Product\Hathor.jpg" />
+    <Content Include="Images\Product\IQ-economy.jpg" />
+    <Content Include="Images\Product\KC05-В.jpg" />
+    <Content Include="Images\Product\KC23В.jpg" />
+    <Content Include="Images\Product\KiN1380.jpg" />
+    <Content Include="Images\Product\KiN1602.jpg" />
+    <Content Include="Images\Product\KKF012.jpg" />
+    <Content Include="Images\Product\KKF052.jpg" />
+    <Content Include="Images\Product\KKF058.jpg" />
+    <Content Include="Images\Product\KKF072.jpg" />
+    <Content Include="Images\Product\KKF079.jpg" />
+    <Content Include="Images\Product\KKF088.jpg" />
+    <Content Include="Images\Product\KKF100.jpg" />
+    <Content Include="Images\Product\KKF110.jpg" />
+    <Content Include="Images\Product\KKF128.jpg" />
+    <Content Include="Images\Product\KKF132.jpg" />
+    <Content Include="Images\Product\KKF418.jpg" />
+    <Content Include="Images\Product\KKF630.jpg" />
+    <Content Include="Images\Product\KKF642.jpg" />
+    <Content Include="Images\Product\klej-ol-15gr.jpg" />
+    <Content Include="Images\Product\klej-ol-21gr.jpg" />
+    <Content Include="Images\Product\klej-ol-9gr.jpg" />
+    <Content Include="Images\Product\KonvertA4.jpg" />
+    <Content Include="Images\Product\KonvertA5.jpg" />
+    <Content Include="Images\Product\Korect-pen.jpg" />
+    <Content Include="Images\Product\KS-35.jpg" />
+    <Content Include="Images\Product\Marker-nabor-6-veb.jpg" />
+    <Content Include="Images\Product\Marker-pemanent-black.jpg" />
+    <Content Include="Images\Product\Marker-pemanent-blue.jpg" />
+    <Content Include="Images\Product\Marker-pemanent-red.jpg" />
+    <Content Include="Images\Product\Maxi-Spring.jpg" />
+    <Content Include="Images\Product\Mouse.jpg" />
+    <Content Include="Images\Product\Nakladna.jpg" />
+    <Content Include="Images\Product\NakladnaRoz.jpg" />
+    <Content Include="Images\Product\papka-d-paperiv.jpg" />
+    <Content Include="Images\Product\PB120001.jpg" />
+    <Content Include="Images\Product\PB120005.jpg" />
+    <Content Include="Images\Product\PB120006.jpg" />
+    <Content Include="Images\Product\PB120009a.jpg" />
+    <Content Include="Images\Product\PB120012.jpg" />
+    <Content Include="Images\Product\PB120015.jpg" />
+    <Content Include="Images\Product\PB120018.jpg" />
+    <Content Include="Images\Product\PB120020.jpg" />
+    <Content Include="Images\Product\PB120026.jpg" />
+    <Content Include="Images\Product\PB120028.jpg" />
+    <Content Include="Images\Product\PB120031.jpg" />
+    <Content Include="Images\Product\PB120035.jpg" />
+    <Content Include="Images\Product\PB120041.jpg" />
+    <Content Include="Images\Product\PB120043.jpg" />
+    <Content Include="Images\Product\PB120045.jpg" />
+    <Content Include="Images\Product\PB120046.jpg" />
+    <Content Include="Images\Product\PB140002.jpg" />
+    <Content Include="Images\Product\PB140003.jpg" />
+    <Content Include="Images\Product\PB140004.jpg" />
+    <Content Include="Images\Product\PB140005.jpg" />
+    <Content Include="Images\Product\PB140011.jpg" />
+    <Content Include="Images\Product\PB140012.jpg" />
+    <Content Include="Images\Product\PB140013.jpg" />
+    <Content Include="Images\Product\PB140014.jpg" />
+    <Content Include="Images\Product\PB140015.jpg" />
+    <Content Include="Images\Product\PB140015_.jpg" />
+    <Content Include="Images\Product\PB140016.jpg" />
+    <Content Include="Images\Product\PB140016_.jpg" />
+    <Content Include="Images\Product\PB140018.jpg" />
+    <Content Include="Images\Product\PB140018_.jpg" />
+    <Content Include="Images\Product\PB140019.jpg" />
+    <Content Include="Images\Product\PB140019_.jpg" />
+    <Content Include="Images\Product\PB140020.jpg" />
+    <Content Include="Images\Product\PB140020_.jpg" />
+    <Content Include="Images\Product\PB140021.jpg" />
+    <Content Include="Images\Product\PB140021_.jpg" />
+    <Content Include="Images\Product\PB140023.jpg" />
+    <Content Include="Images\Product\PB140023_.jpg" />
+    <Content Include="Images\Product\PB140025.jpg" />
+    <Content Include="Images\Product\PB140026.jpg" />
+    <Content Include="Images\Product\Pb140055.jpg" />
+    <Content Include="Images\Product\Pb140055_.jpg" />
+    <Content Include="Images\Product\PB170067.jpg" />
+    <Content Include="Images\Product\PB170068.jpg" />
+    <Content Include="Images\Product\PB170070.jpg" />
+    <Content Include="Images\Product\PB170072.jpg" />
+    <Content Include="Images\Product\PB170073.jpg" />
+    <Content Include="Images\Product\PB170075.jpg" />
+    <Content Include="Images\Product\PB170076.jpg" />
+    <Content Include="Images\Product\PB170077.jpg" />
+    <Content Include="Images\Product\PB170080.jpg" />
+    <Content Include="Images\Product\PB170082.jpg" />
+    <Content Include="Images\Product\PB190083.jpg" />
+    <Content Include="Images\Product\PB190087.jpg" />
+    <Content Include="Images\Product\PB190089.jpg" />
+    <Content Include="Images\Product\PB190092.jpg" />
+    <Content Include="Images\Product\PB190097.jpg" />
+    <Content Include="Images\Product\PB190098.jpg" />
+    <Content Include="Images\Product\PB190100.jpg" />
+    <Content Include="Images\Product\PB190102.jpg" />
+    <Content Include="Images\Product\PB190111.jpg" />
+    <Content Include="Images\Product\PB190112.jpg" />
+    <Content Include="Images\Product\PB190115.jpg" />
+    <Content Include="Images\Product\PB190117.jpg" />
+    <Content Include="Images\Product\PB190120.jpg" />
+    <Content Include="Images\Product\plan_shema.jpg" />
+    <Content Include="Images\Product\PosvProVirrid.jpg" />
+    <Content Include="Images\Product\PribKasOrder.jpg" />
+    <Content Include="Images\Product\Rahynok.jpg" />
+    <Content Include="Images\Product\rees-bl.jpg" />
+    <Content Include="Images\Product\retype.JPG" />
+    <Content Include="Images\Product\S-Front-004.jpg" />
+    <Content Include="Images\Product\S-Front-005.jpg" />
+    <Content Include="Images\Product\S-Front-006.jpg" />
+    <Content Include="Images\Product\SamoklStrishka110x220.jpg" />
+    <Content Include="Images\Product\SamoklStrishka162x229.jpg" />
+    <Content Include="Images\Product\skiper-3otd-b.jpg" />
+    <Content Include="Images\Product\Skrepki-color.jpg" />
+    <Content Include="Images\Product\SLDTEC SL-1200V.jpg" />
+    <Content Include="Images\Product\SLDTEC SL-309.jpg" />
+    <Content Include="Images\Product\SLDTEC SL-310.jpg" />
+    <Content Include="Images\Product\SLDTEC SL-837.jpg" />
+    <Content Include="Images\Product\SLDTEC SL-841.jpg" />
+    <Content Include="Images\Product\SLDTEC SL-886.jpg" />
+    <Content Include="Images\Product\SLDTEC SL-999.jpg" />
+    <Content Include="Images\Product\StandartFlex.jpg" />
+    <Content Include="Images\Product\StandartOrient.jpg" />
+    <Content Include="Images\Product\StandartTorino.jpg" />
+    <Content Include="Images\Product\trodat-black.jpg" />
+    <Content Include="Images\Product\trodat-blue.jpg" />
+    <Content Include="Images\Product\trodat-green.jpg" />
+    <Content Include="Images\Product\trodat-red.jpg" />
+    <Content Include="Images\Product\trodat-violet.jpg" />
+    <Content Include="Images\Product\VidatkKassOrder.jpg" />
+    <Content Include="Images\Product\W209B.jpg" />
+    <Content Include="Images\Product\WS4161kВ.jpg" />
+    <Content Include="Images\Site\logo.jpg" />
+    <Content Include="Images\Site\Spinner-0.5s-200px.gif" />
+    <Content Include="Images\User\Default.jpg" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="ApplicationInsights.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Areas\Admin\Views\web.config" />
+    <Content Include="Areas\Admin\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\Admin\Views\Country\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Country\_Countries.cshtml" />
+    <Content Include="Areas\Admin\Views\Country\_Search.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\_ItemsPerPage.cshtml" />
+    <Content Include="Areas\Admin\Views\Country\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Country\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Home\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Manufacturer\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Manufacturer\_Manufacturers.cshtml" />
+    <Content Include="Areas\Admin\Views\Manufacturer\_Search.cshtml" />
+    <Content Include="Areas\Admin\Views\Manufacturer\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Manufacturer\Edit.cshtml" />
+    <Content Include="fonts\fontawesome-webfont.eot" />
+    <Content Include="fonts\fontawesome-webfont.svg" />
+    <Content Include="fonts\fontawesome-webfont.ttf" />
+    <Content Include="fonts\fontawesome-webfont.woff" />
+    <Content Include="fonts\fontawesome-webfont.woff2" />
+    <Content Include="fonts\FontAwesome.otf" />
+    <Content Include="Areas\Admin\Views\Category\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Category\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Category\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Subcategory\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Subcategory\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Subcategory\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Category\_Categories.cshtml" />
+    <Content Include="Areas\Admin\Views\Category\_Search.cshtml" />
+    <Content Include="Areas\Admin\Views\Subcategory\_Subcategories.cshtml" />
+    <Content Include="Areas\Admin\Views\Subcategory\_Search.cshtml" />
+    <Content Include="Areas\Admin\Views\Product\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Product\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Product\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Product\_Products.cshtml" />
+    <Content Include="Areas\Admin\Views\Product\_Search.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\_ProductImage.cshtml" />
+    <Content Include="Images\Product\100\Thumbs.db" />
+    <Content Include="Images\Product\Thumbs.db" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+    <None Include="Properties\PublishProfiles\OnlineShop20180212102742 - Web Deploy.pubxml" />
+    <None Include="Properties\PublishProfiles\rv-kanc - Web Deploy.pubxml" />
+    <None Include="Properties\PublishProfiles\rvkanc - Web Deploy.pubxml" />
+    <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\cropper\bootstrap-filestyle.js" />
+    <Content Include="Scripts\cropper\cropper.js" />
+    <Content Include="Scripts\cropper\cropper111.js" />
+    <Content Include="Scripts\cropper\main.js" />
+    <Content Include="Scripts\docs.js" />
+    <Content Include="Scripts\jquery-1.10.2.js" />
+    <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery-func.js" />
+    <Content Include="Scripts\jquery.jcarousel.pack.js" />
+    <Content Include="Scripts\jquery.js" />
+    <Content Include="Scripts\jQuery.tmpl.min.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\respond.js" />
+    <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\site-scripts.js" />
+    <Content Include="Templates\products.html" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
+    <Content Include="Views\Account\ConfirmEmail.cshtml" />
+    <Content Include="Views\Account\ExternalLoginConfirmation.cshtml" />
+    <Content Include="Views\Account\ExternalLoginFailure.cshtml" />
+    <Content Include="Views\Account\ForgotPassword.cshtml" />
+    <Content Include="Views\Account\ForgotPasswordConfirmation.cshtml" />
+    <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\Account\Register.cshtml" />
+    <Content Include="Views\Account\ResetPassword.cshtml" />
+    <Content Include="Views\Account\ResetPasswordConfirmation.cshtml" />
+    <Content Include="Views\Account\SendCode.cshtml" />
+    <Content Include="Views\Account\VerifyCode.cshtml" />
+    <Content Include="Views\Manage\AddPhoneNumber.cshtml" />
+    <Content Include="Views\Manage\ChangePassword.cshtml" />
+    <Content Include="Views\Manage\Index.cshtml" />
+    <Content Include="Views\Manage\ManageLogins.cshtml" />
+    <Content Include="Views\Manage\SetPassword.cshtml" />
+    <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
+    <Content Include="Views\Shared\Lockout.cshtml" />
+    <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Account\_CropperSelectImage.cshtml" />
+    <Content Include="Views\Shared\_Image.cshtml" />
+    <Content Include="Views\Home\_Categories.cshtml" />
+    <Content Include="Views\Home\_Search.cshtml" />
+    <Content Include="Views\Home\_Products.cshtml" />
+    <Content Include="Views\Account\UserCabinet.cshtml" />
+    <Content Include="Views\Home\Product.cshtml" />
+    <Content Include="Views\Home\Shop.cshtml" />
+    <Content Include="Views\Account\UserCart.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Areas\Admin\Fonts\" />
+    <Folder Include="Areas\Admin\Models\" />
+    <Folder Include="Areas\Admin\Views\User\" />
+    <Folder Include="Models\" />
+    <Folder Include="Upload\ImagesGallery\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Scripts\jquery-1.10.2.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BLL\BLL.csproj">
+      <Project>{87a65432-9ab0-4ecc-b95d-69ac03d2b141}</Project>
+      <Name>BLL</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>49432</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>https://localhost:44397/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.1.3.2\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.1.3.2\build\Microsoft.Net.Compilers.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.3\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.3\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

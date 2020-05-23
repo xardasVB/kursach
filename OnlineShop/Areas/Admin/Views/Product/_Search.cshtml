@@ -1,0 +1,10 @@
+﻿@model BLL.Models.ProductSearchViewModel
+
+<div class="form-group row">
+    @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label" })
+    @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "input-sm" } })
+
+    <input type="submit" value="Search" class="btn btn-default" />
+</div>
+
+
