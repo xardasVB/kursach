@@ -9,7 +9,7 @@ using System.Web.Mvc;
 
 namespace OnlineShop.Areas.Admin.Controllers
 {
-    [Authorize(Users = "besarabvitaliy@gmail.com asd@asd.asd")]
+    [Authorize(Users = "besarabvitaliy@gmail.com,asd@asd.asd")]
     public class CountryController : Controller
     {
         private readonly ICountryProvider _countryProvider;

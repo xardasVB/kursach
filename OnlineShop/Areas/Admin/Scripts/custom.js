@@ -1,31 +1,11 @@
-
-
-
-/*=============================================================
-    Authour URI: www.binarycart.com
-    License: Commons Attribution 3.0
-
-    http://creativecommons.org/licenses/by/3.0/
-
-    100% To use For Personal And Commercial Use.
-    IN EXCHANGE JUST GIVE US CREDITS AND TELL YOUR FRIENDS ABOUT US
-   
-    ========================================================  */
-
-
+/*
 (function ($) {
     "use strict";
     var mainApp = {
 
         main_fun: function () {
-            /*====================================
-            METIS MENU 
-            ======================================*/
             $('#main-menu').metisMenu();
 
-            /*====================================
-              LOAD APPROPRIATE MENU BAR
-           ======================================*/
             $(window).bind("load resize", function () {
                 if ($(this).width() < 768) {
                     $('div.sidebar-collapse').addClass('collapse')
@@ -34,9 +14,6 @@
                 }
             });
 
-            /*====================================
-            MORRIS BAR CHART
-         ======================================*/
             Morris.Bar({
                 element: 'morris-bar-chart',
                 data: [{
@@ -75,9 +52,6 @@
                 resize: true
             });
 
-            /*====================================
-          MORRIS DONUT CHART
-       ======================================*/
             Morris.Donut({
                 element: 'morris-donut-chart',
                 data: [{
@@ -92,10 +66,6 @@
                 }],
                 resize: true
             });
-
-            /*====================================
-         MORRIS AREA CHART
-      ======================================*/
 
             Morris.Area({
                 element: 'morris-area-chart',
@@ -158,9 +128,6 @@
                 resize: true
             });
 
-            /*====================================
-    MORRIS LINE CHART
- ======================================*/
             Morris.Line({
                 element: 'morris-line-chart',
                 data: [{
@@ -215,3 +182,4 @@
     });
 
 }(jQuery));
+*/

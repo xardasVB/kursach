@@ -25,6 +25,7 @@
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <Use64BitIISExpress />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -245,9 +246,6 @@
     <Content Include="Areas\Admin\Scripts\dataTables\jquery.dataTables.js" />
     <Content Include="Areas\Admin\Scripts\jquery-1.10.2.js" />
     <Content Include="Areas\Admin\Scripts\jquery.metisMenu.js" />
-    <Content Include="Areas\Admin\Scripts\morris\morris-0.4.3.min.css" />
-    <Content Include="Areas\Admin\Scripts\morris\morris.js" />
-    <Content Include="Areas\Admin\Scripts\morris\raphael-2.1.0.min.js" />
     <Content Include="Areas\Admin\Scripts\myScript.js" />
     <Content Include="Content\bootstrap-social.css" />
     <Content Include="Content\bootstrap-theme.css" />

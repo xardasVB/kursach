@@ -8,7 +8,7 @@ using System.Web.Mvc;
 
 namespace OnlineShop.Areas.Admin.Controllers
 {
-    [Authorize(Users = "besarabvitaliy@gmail.com asd@asd.asd")]
+    [Authorize(Users = "besarabvitaliy@gmail.com,asd@asd.asd")]
     public class ManufacturerController : Controller
     {
         private readonly IManufacturerProvider _manufacturerProvider;
